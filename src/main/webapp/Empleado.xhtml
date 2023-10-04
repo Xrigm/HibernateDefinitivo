@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <h:outputStylesheet name="css/bootstrap.min.css" />
+    <title>Agregar Cliente</title>
+</h:head>
+
+<h:body>
+
+    <h:form styleClass="container">
+        <h:panelGrid columns="1">
+            <h:outputText styleClass="align-content-center text-center" value="Agregar Cliente"/> <br/>
+        </h:panelGrid>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="id" value="ID: " styleClass="form-label" />
+            <h:inputText styleClass="form-control" id="id" value="#{empleadoBean.id}"/>
+            <h:outputLabel for="nombres" value="Nombres: " styleClass="form-label" />
+            <h:inputText styleClass="form-control" id="nombres" value="#{empleadoBean.nombres}" />
+            <h:outputLabel for="nombres" value="Apellidos: " styleClass="form-label" />
+            <h:inputText styleClass="form-control" id="apellidos" value="#{empleadoBean.apellidos}"/>
+            <h:outputLabel for="edad" value="Edad: " styleClass="form-label" />
+            <h:inputText styleClass="form-control" id="edad" value="#{empleadoBean.edad}"/>
+            <h:outputLabel for="tel" value="Telefono: " styleClass="form-label" />
+            <h:inputText styleClass="form-control" id="tel" value="#{empleadoBean.telefono}"/>
+            <h:outputLabel for="direc" value="Dirección: " styleClass="form-label" />
+            <h:inputText styleClass="form-control" id="direc" value="#{empleadoBean.direccion}"/>
+            <h:panelGrid columns="4">
+                <h:commandButton styleClass="btn btn-primary center-block" value="Guardar" action="#{empleadoBean.addEmpleado()}" />
+                <h:commandButton styleClass="btn btn-primary center-block" value="Consultar Cliente" action="#{empleadoBean.returnEmpleadoId()}" />
+                <h:commandButton styleClass="btn btn-danger center-block" value="Eliminar" action="#{empleadoBean.deleteEmpleado()}" />
+                <h:commandButton styleClass="btn btn-primary center-block" value="Actualizar" action="#{empleadoBean.updateEmpleado()}" />
+            </h:panelGrid>
+            <h:messages infoStyle="color: blue" globalOnly="true"/>
+        </h:panelGrid>
+    </h:form>
+    <br/>
+    <h:form styleClass="container">
+        <h:dataTable styleClass="table table-striped" var="list" value="#{empleadoBean.empleados}" >
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="ID"/>
+                </f:facet>
+                <h:outputText value="#{list.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Nombres"/>
+                </f:facet>
+                <h:outputText value="#{list.nombres}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Apellidos"/>
+                </f:facet>
+                <h:outputText value="#{list.apellidos}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Edad"/>
+                </f:facet>
+                <h:outputText value="#{list.edad}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Dirección"/>
+                </f:facet>
+                <h:outputText value="#{list.direccion}"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+
+    <h:form styleClass="container">
+        <h:panelGrid columns="1">
+            <h:outputText styleClass="align-content-center text-center" value="Agregar Categoria"/> <br/>
+        </h:panelGrid>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="idC" value="ID: " styleClass="form-label" />
+            <h:inputText styleClass="form-control" id="idC" value="#{categoriaBean.id}"/>
+            <h:outputLabel for="nombreC" value="Nombre Categoria: " styleClass="form-label" />
+            <h:inputText styleClass="form-control" id="nombreC" value="#{categoriaBean.nombreCatego}" />
+            <h:panelGrid columns="4">
+                <h:commandButton styleClass="btn btn-primary center-block" value="Guardar" action="#{categoriaBean.addCatego()}" />
+                <h:commandButton styleClass="btn btn-primary center-block" value="Consultar Categoria" action="#{categoriaBean.returnCategoriaId()}" />
+                <h:commandButton styleClass="btn btn-danger center-block" value="Eliminar" action="#{categoriaBean.deleteCategoria()}" />
+                <h:commandButton styleClass="btn btn-primary center-block" value="Actualizar" action="#{categoriaBean.updateCategoria()}" />
+
+            </h:panelGrid>
+            <h:messages infoStyle="color: blue" globalOnly="true"/>
+        </h:panelGrid>
+    </h:form>
+    <br/>
+    <h:form styleClass="container">
+        <h:dataTable styleClass="table table-striped" var="listC" value="#{categoriaBean.categoria}" >
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="ID"/>
+                </f:facet>
+                <h:outputText value="#{listC.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Nombres"/>
+                </f:facet>
+                <h:outputText value="#{listC.nombreCatego}"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+    <h:form styleClass="container">
+        <h:panelGrid columns="1">
+            <h:outputText styleClass="align-content-center text-center" value="Agregar Producto"/> <br/>
+        </h:panelGrid>
+        <h:panelGrid columns="2">
+            <h:panelGrid columns="4">
+                <h:commandButton styleClass="btn btn-primary center-block" value="Guardar Producto" action="#{productosBean.addCatego()}" />
+            </h:panelGrid>
+            <h:messages infoStyle="color: blue" globalOnly="true"/>
+        </h:panelGrid>
+    </h:form>
+    <br/>
+
+
+
+</h:body>
+
+</html>

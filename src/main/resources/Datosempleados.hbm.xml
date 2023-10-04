@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="sv.edu.udb.www.hibernate.Datosempleados" table="datosempleados" schema="empleado">
+        <id name="id">
+            <column name="Id" sql-type="int(11)"/>
+        </id>
+        <property name="nombres">
+            <column name="Nombres" sql-type="varchar(80)" length="80"/>
+        </property>
+        <property name="apellidos">
+            <column name="Apellidos" sql-type="varchar(80)" length="80"/>
+        </property>
+        <property name="edad">
+            <column name="Edad" sql-type="int(11)"/>
+        </property>
+        <property name="telefono">
+            <column name="Telefono" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="direccion">
+            <column name="Direccion" sql-type="varchar(9)" length="9" not-null="true"/>
+        </property>
+    </class>
+
+    <class name="sv.edu.udb.www.hibernate.DatosCategoria" table="categoria" schema="empleado">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="nombreCatego">
+            <column name="nombre" sql-type="varchar(50)" length="80"/>
+        </property>
+    </class>
+
+</hibernate-mapping>
